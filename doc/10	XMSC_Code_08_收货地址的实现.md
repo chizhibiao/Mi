@@ -21,7 +21,7 @@
 var ADDRESS_KEY = 'Address';
 var addresses = store.get(ADDRESS_KEY,[]);
 ```
-- 生成地址列表
+2. 生成地址列表
 ```javascript
 function renderAddressList(addresses){
   var html = '';
