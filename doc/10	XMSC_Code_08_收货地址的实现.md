@@ -10,15 +10,6 @@
 * 删除和修改数据后记得更新页面。
 * 在某项收货地址上点击删除，询问用户是否要删除，确认后再删除。用自定义的模态框代替confirm函数
 * 感兴趣的同学可以使用本地存储存放收货地址数据。
-## 10.2 具体需求
-字段 | 说明 | 来源
-:----|:-----:|-----:
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
 
 ## 10.2	工作指导说明
     用户在个人中心页面，选个人中心菜单→收货地址菜单进入收货地址管理页面。 
@@ -136,5 +127,11 @@ if(index != -1){
 }
 ```
 ### 10.2.4 实现修改地址功能
+
 ## 10.3	工作产品要求
 收货地址的界面参考如下：
+![收货地址管理界面](https://github.com/chizhibiao/Mi/raw/master/images/收货地址.png)
+
+![收货地址修改界面](https://github.com/chizhibiao/Mi/raw/master/images/添加收货地址.png)
+
+![收货地址详情界面](https://github.com/chizhibiao/Mi/raw/master/images/收货地址详情.png)
