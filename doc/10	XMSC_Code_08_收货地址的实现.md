@@ -21,7 +21,7 @@
 var ADDRESS_KEY = 'Address';
 var addresses = store.get(ADDRESS_KEY,[]);
 ```
-2. 生成地址列表
+- 生成地址列表
 ```javascript
 function renderAddressList(addresses){
   var html = '';
@@ -46,6 +46,7 @@ $('#saveForAdd').on('click', function(){
 });
 ```
 说明：saveForAdd是添加收货地址的模态框中的保存按钮的id。
+
 4. 为修改收货地址的模态框中的保存按钮设置click事件
 ```javascript
 $('#saveForUpdate').on('click', function(){
@@ -53,6 +54,7 @@ $('#saveForUpdate').on('click', function(){
 });
 ```
 说明：saveForUpdate是修改收货地址的模态框中的保存按钮的id。
+
 5. 为详细收货地址中的修改和删除两个链接设置click事件
 ```javascript
 //找到所有的删除链接的共同祖先，利用共同父元素的事件委托给子元素设置事件
@@ -67,7 +69,9 @@ $('#addressList').on('click','.update',function(){
 说明：addressList是共同父元素的id，delete和update是设置在两个链接上的class属性。
 ### 10.2.3 实现添加地址功能
 1. 数据验证
+
 省略
+
 2. 自动生成id，取出数组中的最后一条地址数据的id，+1。
 ```javascript
 var id = 1;//数组中没有地址数据时，添加的地址数据id的值为1
