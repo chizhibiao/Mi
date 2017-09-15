@@ -131,6 +131,44 @@ if(index != -1){
 }
 ```
 ### 10.2.4 实现修改地址功能
+1. 修改前面的renderAddressItem函数，为修改的链接添加模态框的自定义属性data-toggle="modal",data-target或者href。。
+1. 初始化修改模态框界面
+```javascript
+$('#修改地址的模态框id').on('show.bs.modal', function (e) {
+  var id = $(e.relatedTarget).parent().data('id');
+  var index = addresses.findIndex(function(item){
+    return item.id === id;
+  });
+  if(index != -1){
+    var address = addresses[index];
+    $('姓名选择器').val(address.name);
+    //......其他省略
+    $(this).data('related',e.relatedTarget);//收货地址保存后需要知道更新哪个元素
+  }
+})
+```
+3. 保存时需要知道改变addresses数组中的哪个成员。在前面的“初始化修改模态框界面”中，把address声明在函数外面，扩大address的作用域和生命周期
+```javascript
+//页面初始化的代码中添加address的声明
+var ADDRESS_KEY = 'Address';
+var addresses = store.get(ADDRESS_KEY,[]);
+var address = {};
+//初始化修改模态框界面代码中去掉声明
+address = addresses[index];
+```
+4. 修改收货地址的数据后后保存
+```javascript
+$('#saveForUpdate').on('click', function(){
+  //验证省略
+  address.name = $('姓名选择器').val();
+  //其他省略
+  store.update(ADDRESS_KEY,addresses);
+  var html = renderAddressItem(address);
+  $a = $($('#修改地址的模态框').data('related'));
+  $a.parent().parent().html(html);//根据各自的界面，遍历查找元素
+});
+```
+说明：为什么不需要把address保存回addresses数组，因为addresses数组中保存的是对象。之前把成员赋值给address时，addresses[index]和address指向的都是堆当中的同一块内存。
 
 ## 10.3	工作产品要求
 收货地址的界面参考如下：
